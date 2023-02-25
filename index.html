@@ -8,5 +8,25 @@
     <script src="script.js" defer></script>
     <title>Uno Royale</title>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <h1 class="headerTitle">Uno Royale</h1>
+      <div class="cardCount">
+        <h5># of Computer Cards:</h5>
+        <h5># of Player Cards:</h5>
+      </div>
+    </header>
+
+    <!-- where user can draw/place cards & skip turn -->
+    <div class="deckControls">
+      <div class="deck">deck</div>
+      <div class="placedCards">placed cards</div>
+      <button>Skip Turn</button>
+    </div>
+
+    <!-- player cards (should be visible) -->
+    <div class="playerCards">
+      <span id="playerCardDisplay"></span>
+    </div>
+  </body>
 </html>
