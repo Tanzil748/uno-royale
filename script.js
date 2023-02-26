@@ -310,45 +310,65 @@ const cardArray = [
   },
 ];
 
+const placedCardsDisplay = document.getElementById("placedCardsDisplay");
+const playerDeckDisplay = document.querySelector(".playerCardContainer");
+const originalDeckDisplay = document.getElementById("originalDeck");
+const computerCardCount = document.querySelector(".computerCardCount");
+const playerCardCount = document.querySelector(".playerCardCount");
+
 let playerDeck = [];
 let computerDeck = [];
 let placedCards = [];
 
-// randomly shuffle array
-const randomShuffle = (arr) => {
-  for (let i = arr.length - 1; i > 0; i--) {
-    let j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
+// child variables used in selectImage calls
+let originalDeckBack;
+let latestPlacedCard;
+let playerCards;
+
+// select an element or class from html file & set images to it (used in roundStart function)
+function selectImage(parentVariable, childVariable, imageLink) {
+  childVariable = document.createElement("img");
+  childVariable.setAttribute("src", imageLink);
+  childVariable.style.width = "100px";
+  childVariable.style.borderRadius = "10px";
+  parentVariable.append(childVariable);
+}
+
+const roundStart = () => {
+  // randomly shuffle array
+  const randomShuffle = (arr) => {
+    for (let i = arr.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+  };
+
+  randomShuffle(cardArray);
+
+  // player & computer each given 7 cards while mutating original deck
+  playerDeck = cardArray.splice(0, 7);
+  computerDeck = cardArray.splice(0, 7);
+
+  // this is starting placed card taken from the back of deck
+  placedCards = cardArray.pop();
+
+  // original card deck (facedown)
+  selectImage(originalDeckDisplay, originalDeckBack, "images/unoBackdrop.png");
+
+  // this shows latest placed card
+  selectImage(placedCardsDisplay, latestPlacedCard, placedCards.img);
+
+  // displays player deck on screen
+  for (let i = 0; i < playerDeck.length; i++) {
+    selectImage(playerDeckDisplay, playerCards, playerDeck[i].img);
   }
 };
 
-randomShuffle(cardArray);
+roundStart();
 
-// player & computer each given 7 cards while mutating original deck
-playerDeck = cardArray.splice(0, 7);
-computerDeck = cardArray.splice(0, 7);
-
-// this is starting placed card taken from the back of deck
-placedCards = cardArray.pop();
-
-const placedCardsDisplay = document.getElementById("placedCardsDisplay");
-const playerDeckDisplay = document.querySelector(".playerCardContainer");
-
-// this shows latest placed card
-let latestPlacedCard = document.createElement("img");
-latestPlacedCard.setAttribute("src", placedCards.img);
-latestPlacedCard.style.width = "100px";
-latestPlacedCard.style.borderRadius = "10px";
-placedCardsDisplay.append(latestPlacedCard);
-
-// displays player deck on screen
-for (let i = 0; i < playerDeck.length; i++) {
-  let playerCards = document.createElement("img");
-  playerCards.setAttribute("src", playerDeck[i].img);
-  playerCards.style.width = "100px";
-  playerCards.style.borderRadius = "10px";
-  playerDeckDisplay.append(playerCards);
-}
+// computer/player card count
+computerCardCount.innerText = computerDeck.length;
+playerCardCount.innerText = playerDeck.length;
 
 console.log(cardArray);
 console.log(playerDeck);

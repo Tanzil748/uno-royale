@@ -16,21 +16,15 @@
         <button class="reset">Reset Game</button>
       </div>
       <div class="cardCount">
-        <h5>Computer Cards Left: <span class="computerCardCount">7</span></h5>
-        <h5>Player Cards Left: <span class="playerCardCount">7</span></h5>
+        <h5>Computer Cards Left: <span class="computerCardCount"></span></h5>
+        <h5>Player Cards Left: <span class="playerCardCount"></span></h5>
       </div>
     </header>
 
     <!-- where user can draw/place cards & skip turn -->
     <section class="deckControls">
       <div class="deck">
-        <div class="cardBack">
-          <img
-            src="images/unoBackdrop.png"
-            alt="uno card backdrop"
-            class="card"
-          />
-        </div>
+        <span id="originalDeck"></span>
       </div>
       <div class="placedCards">
         <span id="placedCardsDisplay"></span>
