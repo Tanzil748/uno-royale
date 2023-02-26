@@ -11,22 +11,36 @@
   <body>
     <header>
       <h1 class="headerTitle">Uno Royale</h1>
+      <div class="subTitle">
+        <h5>First to Zero Cards Wins!</h5>
+        <button class="reset">Reset Game</button>
+      </div>
       <div class="cardCount">
-        <h5># of Computer Cards:</h5>
-        <h5># of Player Cards:</h5>
+        <h5>Computer Cards Left: <span class="computerCardCount">7</span></h5>
+        <h5>Player Cards Left: <span class="playerCardCount">7</span></h5>
       </div>
     </header>
 
     <!-- where user can draw/place cards & skip turn -->
-    <div class="deckControls">
-      <div class="deck">deck</div>
-      <div class="placedCards">placed cards</div>
+    <section class="deckControls">
+      <div class="deck">
+        <div class="cardBack">
+          <img
+            src="images/unoBackdrop.png"
+            alt="uno card backdrop"
+            class="card"
+          />
+        </div>
+      </div>
+      <div class="placedCards">
+        <span id="placedCardsDisplay"></span>
+      </div>
       <button>Skip Turn</button>
-    </div>
+    </section>
 
     <!-- player cards (should be visible) -->
-    <div class="playerCards">
-      <span id="playerCardDisplay"></span>
-    </div>
+    <section class="playerCards">
+      <div class="playerCardContainer"></div>
+    </section>
   </body>
 </html>

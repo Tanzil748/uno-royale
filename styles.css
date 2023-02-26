@@ -5,11 +5,17 @@
 }
 
 body {
-  height: 100vh;
+  background-color: lightcoral;
 }
 
 .headerTitle {
   text-align: center;
+}
+
+.subTitle {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
 }
 
 .cardCount {
@@ -24,4 +30,16 @@ body {
   align-items: center;
   gap: 10px;
   border: 1px solid black;
+  height: 60vh;
+}
+
+.card {
+  width: 100px;
+  border-radius: 10px;
+}
+
+.playerCardContainer {
+  display: flex;
+  gap: 2px;
+  justify-content: center;
 }
