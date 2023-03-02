@@ -18,27 +18,20 @@ body {
   padding: 0 10px;
 }
 
-.cardCount {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
 .deckControls {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
-  border: 1px solid black;
-  height: 60vh;
+  height: 40vh;
 }
 
-.card {
-  width: 100px;
-  border-radius: 10px;
+.compCardContainer {
+  padding-top: 1rem;
 }
 
-.playerCardContainer {
+.playerCardContainer,
+.compCardContainer {
   display: flex;
   gap: 2px;
   justify-content: center;
