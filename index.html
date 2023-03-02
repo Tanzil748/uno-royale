@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <script src="script.js" defer></script>
     <title>Uno Royale</title>
   </head>
   <body>
@@ -15,26 +14,25 @@
         <h5>First to Zero Cards Wins!</h5>
         <button class="reset">Reset Game</button>
       </div>
-      <div class="cardCount">
-        <h5>Computer Cards Left: <span class="computerCardCount"></span></h5>
-        <h5>Player Cards Left: <span class="playerCardCount"></span></h5>
-      </div>
     </header>
+
+    <!-- computer hands (should only show back of card) -->
+    <section class="compCardContainer">
+      <div id="compHand"></div>
+    </section>
 
     <!-- where user can draw/place cards & skip turn -->
     <section class="deckControls">
-      <div class="deck">
-        <span id="originalDeck"></span>
-      </div>
-      <div class="placedCards">
-        <span id="placedCardsDisplay"></span>
-      </div>
+      <div id="originalDeck"></div>
+      <div id="placedCards"></div>
       <button>Skip Turn</button>
     </section>
 
     <!-- player cards (should be visible) -->
-    <section class="playerCards">
-      <div class="playerCardContainer"></div>
+    <section class="playerCardContainer">
+      <div id="playerHand"></div>
     </section>
+
+    <script src="script.js"></script>
   </body>
 </html>
